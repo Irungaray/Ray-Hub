@@ -1,0 +1,29 @@
+{
+  "name": "rayhub",
+  "version": "1.0.0",
+  "description": "Plataforma de video",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Irungaray/ReactHub.git"
+  },
+  "author": "Irungaray",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Irungaray/ReactHub/issues"
+  },
+  "homepage": "https://github.com/Irungaray/ReactHub#readme",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0"
+  }
+}

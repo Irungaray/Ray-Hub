@@ -1,3 +1,5 @@
+@import "../Vars.scss";
+
 header {
     background-color: #f0a500;
     width: 100%;
@@ -14,7 +16,7 @@ header {
 }
 
 .header__title {
-    font-family: Tattoo;
+    font-family: 'Tattoo';
     font-size: 40px;
     text-shadow: 4px 4px 3px rgba(0,0,0,0.82);
     color: white;

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
-import HelloWorld from './components/HelloWorld'
+import App from './containers/App'
 
 // Inyectando los componentes importados al index.html
-ReactDOM.render(<HelloWorld />, document.getElementById('app'))
+ReactDOM.render(<App />, document.getElementById('app'))

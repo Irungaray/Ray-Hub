@@ -1,4 +1,27 @@
+ /*Import de fuentes*/
+
+// @font-face{
+//     font-family: "Tattoo";
+//     src: url("../fonts/Tattoo.ttf");
+// }
+
+// @font-face{
+//     font-family: "Sink";
+//     src: url("../fonts/Sink.ttf");
+// }
+
+// @font-face{
+//     font-family: "Roboto";
+//     src: url("../fonts/Roboto.ttf");
+// }
+
 body {
-    margin: 0;
-    background-color: grey;
+    margin: 0px;
+    font-family: Roboto;
+    background-color: #dbdbdb;
+}
+
+.sesion {
+    text-decoration: none;
+    color: white;
 }

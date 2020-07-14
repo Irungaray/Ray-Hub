@@ -1,0 +1,113 @@
+.login {
+    background-color: #dbdbdb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0px 30px;
+    min-height: calc(100vh - 200px);
+}
+
+.login__container {
+    background-color: white;
+    border: 2px solid #f0a500;
+    border-radius: 40px;
+    margin: 20px;
+    padding: 25px 68px 30px;
+    min-height: 700px;
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.login__container h2 {
+    color: black;
+    font-size: 40px;
+}
+
+.login__container--form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login__container--form label {
+    font-size: 15px;
+}
+
+.login__container--remember-me {
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.login__container--remember-me a {
+    color: grey;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.login__container--remember-me a:hover {
+    text-decoration: underline;
+}
+
+.login__container--social-media > div {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.login__container--social-media > div > img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.login__container--register {
+    font-size: 15px;
+}
+
+.login__container--register a {
+    color: grey;
+    font-weight: bold;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+.login__container--register a:hover {
+    text-decoration: underline;
+}
+
+.input {
+    background-color: transparent;
+    border-left: 0px;
+    border-top: 0px;
+    border-right: 0px;
+    border-bottom: 2px solid grey;
+    font-size: 16px;
+    font-family: Roboto;
+    margin-bottom: 20px;
+    padding: 0px 20px;
+    outline: none;
+    height: 50px;
+}
+
+::placeholder {
+    color: grey;
+}
+
+.button {
+    background-color: white(255, 255, 255, 0.1);
+    border: 2px solid #f0a500;
+    border-radius: 25px;
+    color: black;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: Roboto;
+    height: 50px;
+    letter-spacing: 2px;
+    margin: 10px 0px;
+}

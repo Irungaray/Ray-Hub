@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import '../assets/styles/components/Login.scss'
 
 import facebookIcon from '../assets/icons/facebook.png'
@@ -8,7 +9,7 @@ import googleIcon from '../assets/icons/google.png'
 const Register = () => (
     <section className="login">
     <section className="login__container">
-        <h2>Registrate</h2>
+        <h2>Regístrate</h2>
         <form action="" className="login__container--form">
             <input className="input" type="text" placeholder="Nombre de usuario" />
             <input className="input" type="text" placeholder="Correo" />
@@ -18,7 +19,11 @@ const Register = () => (
                     <input type="checkbox" id="cbox1" value="checkbox" />Recuérdame
                 </label>
             </div>
-            <button className="button"><a href="maquetacion.html">Registrate</a></button>
+            <button className="button">
+                <Link to="/">
+                    Registrate
+                </Link>
+            </button>
         </form>
         <section className="login__container--social-media">
             <div><img src={facebookIcon} alt="Facebook" />Inicia sesión con Facebook</div>

@@ -29,10 +29,12 @@
 .login__container--form {
     display: flex;
     flex-direction: column;
+    color: black;
 }
 
 .login__container--form label {
     font-size: 15px;
+    color: black;
 }
 
 .login__container--remember-me {

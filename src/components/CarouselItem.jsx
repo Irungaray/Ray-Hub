@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
 import {  setFavorite, deleteFavorite } from '../actions'
 
 import '../assets/styles/components/CarouselItem.scss';
@@ -39,10 +41,12 @@ const CarouselItem = (props) => {
                         alt="New"
                     />
 
-                    <img
-                        src={play}
-                        alt="Play"
-                    />
+                    <Link to={`/player/${id}`}>
+                        <img
+                            src={play}
+                            alt="Play"
+                        />
+                    </Link>
 
 
 

@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
 
 import reducer from './reducers';
 import App from './routes/App';
 
 // Inyectando a la Store de Redux la API
 const initialState = {
+    "searchResult": [],
     "user": {},
     "playing": {},
     "myList": [],
@@ -160,8 +161,11 @@ const initialState = {
     ]
 };
 
+// Debug con Redux DevTools
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
 // Nuevo Store para pasarle al Provider
-const store =  createStore(reducer, initialState);
+const store =  createStore(reducer, initialState, composeEnhancers());
 
 // Inyectando los componentes importados al index.html
 ReactDOM.render(

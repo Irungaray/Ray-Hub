@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+
 import Search from '../components/Search';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
@@ -7,10 +8,26 @@ import CarouselItem from '../components/CarouselItem';
 
 import '../assets/styles/App.scss';
 
-const Home = ({ myList, trends, originals }) => {
+const Home = ({ myList, trends, originals, searchResult }) => {
     return (
         <>
             <Search />
+
+            {
+                Object.keys(searchResult).length > 0 &&
+                    (
+                        <Categories title="Resultados de tu busqueda">
+                            <Carousel>
+                                {searchResult.map(item =>
+                                    <CarouselItem
+                                        key={item.id}
+                                        {...item}
+                                    />
+                                )}
+                            </Carousel>
+                        </Categories>
+                    )
+            }
 
             {myList.length > 0 &&
                 <Categories title="Mi lista">
@@ -51,7 +68,8 @@ const mapStateToProps = state  => {
     return {
         myList: state.myList,
         trends: state.trends,
-        originals: state.originals
+        originals: state.originals,
+        searchResult: state.searchResult
     }
 };
 

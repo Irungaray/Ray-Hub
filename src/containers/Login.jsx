@@ -59,9 +59,13 @@ const Login = props => {
 
                     <div className="login__container--remember-me">
                         <label>
-                            <input type="checkbox" id="cbox1" value="checkbox" />Recuérdame
+                            <input
+                                type="checkbox"
+                                id="cbox1"
+                                value="checkbox"
+                            /> Recuérdame
                         </label>
-                        <a href="/">Olvidé mi contraseña</a>
+                        <a href="/"><br/>Olvidé mi contraseña</a>
                     </div>
 
                 </form>
@@ -73,7 +77,7 @@ const Login = props => {
                 </section>
 
                 <p className="login__container--register">
-                    ¿No tenes cuenta?
+                    ¿No tenes cuenta? {' '}
                     <Link to="Register">
                         Regístrate
                     </Link>

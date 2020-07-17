@@ -19,6 +19,7 @@
     display: flex;
     justify-content: space-around;
     flex-direction: column;
+    align-items: center;
 }
 
 .login__container h2 {
@@ -29,6 +30,7 @@
 .login__container--form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     color: black;
 }
 
@@ -39,8 +41,6 @@
 
 .login__container--remember-me {
     color: black;
-    display: flex;
-    justify-content: space-between;
     margin-top: 10px;
 }
 
@@ -68,13 +68,13 @@
 }
 
 .login__container--register {
-    font-size: 15px;
+    font-size: 20px;
 }
 
 .login__container--register a {
     color: grey;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 22px;
     text-decoration: none;
 }
 
@@ -88,11 +88,12 @@
     border-top: 0px;
     border-right: 0px;
     border-bottom: 2px solid grey;
-    font-size: 16px;
+    font-size: 20px;
     font-family: Roboto;
     margin-bottom: 20px;
     padding: 0px 20px;
     outline: none;
+    width: 350px;
     height: 50px;
 }
 
@@ -106,10 +107,12 @@
     border-radius: 25px;
     color: black;
     cursor: pointer;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: bold;
     font-family: Roboto;
     height: 50px;
+    width: 300px;
     letter-spacing: 2px;
     margin: 10px 0px;
+    text-decoration: none;
 }

@@ -1,3 +1,8 @@
+import express from 'express'
+import config from './config'
+import webpack from 'webpack'
+import helmet from 'helmet'
+
 // Importando dependencias desde el frontend hacia el servidor
 import React from 'react';
 import { renderToString } from 'react-dom/server';
@@ -5,13 +10,12 @@ import { Provider } from 'react-redux';
 import { createStore, compose } from 'redux';
 import { renderRoutes } from 'react-router-config'
 import { StaticRouter } from 'react-router-dom'
+
 import serverRoutes from '../frontend/routes/serverRoutes'
 import reducer from '../frontend/reducers';
 import initialState from '../frontend/initialState'
 
-import express from 'express'
-import config from './config'
-import webpack from 'webpack'
+
 import Layout from '../frontend/components/Layout';
 
 const { env, port } = config
@@ -27,6 +31,11 @@ if (env === 'development') {
 
     app.use(webpackDevMiddleware(compiler, serverConfig))
     app.use(webpackHotMiddleware(compiler))
+} else {
+    app.use(express.static(`${__dirname}/public`))
+    app.use(helmet())
+    app.use(helmet.permittedCrossDomainPolicies())
+    app.disable('x-powered-by')
 }
 
 // Definiendo las 2 funciones principales (setResponse y renderApp) para el SSR

@@ -17,6 +17,7 @@ if (env === 'development') {
     app.use(webpackHotMiddleware(compiler))
 }
 
+// Trayendo el HTML estático antes de poner la aplicación de React per se
 app.get('*', (req, res) => {
     res.send(`
         <!DOCTYPE html>

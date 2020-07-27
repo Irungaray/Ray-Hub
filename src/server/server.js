@@ -30,7 +30,7 @@ if (env === 'development') {
 }
 
 // Definiendo las 2 funciones principales (setResponse y renderApp) para el SSR
-const setResponse = (html) => {
+const setResponse = (html, preloadedState) => {
     return (`
         <!DOCTYPE html>
         <html lang="es">
@@ -44,6 +44,9 @@ const setResponse = (html) => {
             <body>
                 <!-- Inyectando desde index.js los componentes importados -->
                 <div id="app">${html}</div>
+                <script>
+                    window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
+                </script>
                 <script src="assets/app.js" type="text/javascript"></script>
             </body>
         </html>
@@ -52,6 +55,8 @@ const setResponse = (html) => {
 
 const renderApp = (req, res) => {
     const store =  createStore(reducer, initialState);
+    // Inyectando la API desde el server para que no tenga que ser cargada por el cliente
+    const preloadedState = store.getState()
     const html = renderToString(
         <Provider store={store}>
             <StaticRouter location={req.url} context={{}}>
@@ -62,7 +67,7 @@ const renderApp = (req, res) => {
         </Provider>,
     );
 
-    res.send(setResponse(html))
+    res.send(setResponse(html, preloadedState))
 };
 
 // Llamando la función que renderiza la app

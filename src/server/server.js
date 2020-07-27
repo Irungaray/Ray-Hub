@@ -18,7 +18,23 @@ if (env === 'development') {
 }
 
 app.get('*', (req, res) => {
-    res.send({ hello: 'express'}).end()
+    res.send(`
+        <!DOCTYPE html>
+        <html lang="es">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" href="assets/app.css" type="text/css" />
+                <title>ReactHub</title>
+            </head>
+
+            <body>
+                <!-- Inyectando desde index.js los componentes importados -->
+                <div id="app"></div>
+                <script src="assets/app.js" type="text/javascript"></script>
+            </body>
+        </html>
+    `).end()
 })
 
 app.listen(port, (err) => {

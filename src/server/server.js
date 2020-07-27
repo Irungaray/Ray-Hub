@@ -12,6 +12,7 @@ import initialState from '../frontend/initialState'
 import express from 'express'
 import config from './config'
 import webpack from 'webpack'
+import Layout from '../frontend/components/Layout';
 
 const { env, port } = config
 const app = express()
@@ -54,7 +55,9 @@ const renderApp = (req, res) => {
     const html = renderToString(
         <Provider store={store}>
             <StaticRouter location={req.url} context={{}}>
-                {renderRoutes(serverRoutes)}
+                <Layout>
+                    {renderRoutes(serverRoutes)}
+                </Layout>
             </StaticRouter>
         </Provider>,
     );

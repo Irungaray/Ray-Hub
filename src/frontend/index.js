@@ -6,20 +6,25 @@ import { Router } from 'react-router'
 import { createBrowserHistory } from 'history';
 
 import reducer from './reducers';
-import initialState from './initialState'
 import App from './routes/App';
 
 // Llamando el historial del browser
 const history = createBrowserHistory();
 
+// Importando el preloadedState(API)
+const preloadedState = window.__PRELOADED_STATE__;
+
 // Debug con Redux DevTools
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // Nuevo Store para pasarle al Provider
-const store =  createStore(reducer, initialState, composeEnhancers());
+const store =  createStore(reducer, preloadedState, composeEnhancers());
 
-// Inyectando los componentes importados al index.html
-ReactDOM.render(
+// Borrando el preloadedState para que no sea visto por usuarios externos
+delete window.__PRELOADED_STATE__;
+
+// Hidratando el string recibido desde server.js
+ReactDOM.hydrate(
     <Provider store={store}>
         <Router history={history}>
             <App />

@@ -71,3 +71,11 @@ typings/
 # Docs Custom
 .cache/
 yarn-error.log
+
+# Build
+dist/
+
+cambiosPendientes
+resumen
+
+src/server/public

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, compose } from 'redux';
-import { Router } from 'react-router'
+import { Router } from 'react-router';
 import { createBrowserHistory } from 'history';
 
 import reducer from './reducers';
@@ -18,18 +18,18 @@ const preloadedState = window.__PRELOADED_STATE__;
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // Nuevo Store para pasarle al Provider
-const store =  createStore(reducer, preloadedState, composeEnhancers());
+const store = createStore(reducer, preloadedState, composeEnhancers());
 
 // Borrando el preloadedState para que no sea visto por usuarios externos
 delete window.__PRELOADED_STATE__;
 
 // Hidratando el string recibido desde server.js
 ReactDOM.hydrate(
-    <Provider store={store}>
-        <Router history={history}>
-            <App />
-        </Router>
-    </Provider>,
+  <Provider store={store}>
+    <Router history={history}>
+      <App />
+    </Router>
+  </Provider>,
 
-    document.getElementById('app')
+  document.getElementById('app'),
 );

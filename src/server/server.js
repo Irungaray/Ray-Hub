@@ -116,23 +116,23 @@ app.post('/auth/sign-in', async (req, res, next) => {
 
       const { token, user } = data;
 
-      req.login(data, { session: false }, async (error) => {
-        if (error) {
-          next(error);
+      req.login(data, { session: false }, async (err) => {
+        if (err) {
+          next(err);
         }
 
         const { token, ...user } = data;
 
         res.cookie('token', token, {
-          httpOnly: !config.dev,
-          secure: !config.dev,
+          httpOnly: !(env === 'development'),
+          secure: !(env === 'development'),
           maxAge: rememberMe ? THIRTY_DAYS : TWO_HOURS,
         });
 
         res.status(200).json(user);
       });
-    } catch (error) {
-      next(error);
+    } catch (err) {
+      next(err);
     }
   })(req, res, next);
 });

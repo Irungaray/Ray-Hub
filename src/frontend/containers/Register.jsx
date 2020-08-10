@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { registerRequest } from '../actions';
+import { registerUser } from '../actions';
 
 import '../assets/styles/components/Login.scss';
 
@@ -26,8 +27,7 @@ const Register = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.registerRequest(form);
-    props.history.push('/');
+    props.registerUser(form, '/login');
   };
 
   return (
@@ -70,7 +70,7 @@ const Register = (props) => {
             </label>
           </div>
 
-          <button className='button' type='button'>
+          <button className='button' type='submit'>
             <Link to='/'>
               Registrate
             </Link>
@@ -97,7 +97,11 @@ const Register = (props) => {
 };
 
 const mapDispatchToProps = {
-  registerRequest,
+  registerUser,
+};
+
+Register.propTypes = {
+  registerUser: PropTypes.func,
 };
 
 export default connect(null, mapDispatchToProps)(Register);

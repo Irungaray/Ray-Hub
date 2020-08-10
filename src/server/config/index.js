@@ -1,10 +1,10 @@
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 
-dotenv.config()
+dotenv.config();
 
-const { ENV, PORT } = process.env
+const { ENV, PORT } = process.env;
 
 export default {
     env: ENV,
     port: PORT,
-}
+};

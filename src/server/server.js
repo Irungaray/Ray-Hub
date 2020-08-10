@@ -9,6 +9,12 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { renderRoutes } from 'react-router-config';
 import { StaticRouter } from 'react-router-dom';
+
+import cookieParser from 'cookie-parser';
+import boom from '@hapi/boom';
+import passport from 'passport';
+import axios from 'axios';
+
 import config from './config';
 
 import serverRoutes from '../frontend/routes/serverRoutes';
@@ -20,6 +26,13 @@ import Layout from '../frontend/components/Layout';
 
 const { env, port } = config;
 const app = express();
+
+app.use(express.json());
+app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./utils/auth/strategies/basic');
 
 if (env === 'development') {
   console.log(env);
@@ -85,6 +98,60 @@ const renderApp = (req, res) => {
 
   res.send(setResponse(html, preloadedState, req.hashManifest));
 };
+
+// SIGN UP - SIGN IN
+const THIRTY_DAYS = 2592000000;
+const TWO_HOURS = 7200000;
+
+// SIGN IN
+app.post('/auth/sign-in', async (req, res, next) => {
+  const { rememberMe } = req.body;
+
+  passport.authenticate('basic', (error, data) => {
+    try {
+      if (error || !data) {
+        next(boom.unauthorized());
+      }
+
+      const { token, user } = data;
+
+      req.login(data, { session: false }, async (error) => {
+        if (error) {
+          next(error);
+        }
+
+        const { token, ...user } = data;
+
+        res.cookie('token', token, {
+          httpOnly: !config.dev,
+          secure: !config.dev,
+          maxAge: rememberMe ? THIRTY_DAYS : TWO_HOURS,
+        });
+
+        res.status(200).json(user);
+      });
+    } catch (error) {
+      next(error);
+    }
+  })(req, res, next);
+});
+
+// SIGN UP
+app.post('/auth/sign-up', async (req, res, next) => {
+  const { body: user } = req;
+
+  try {
+    await axios({
+      url: `${config.apiUrl}/api/auth/sign-up`,
+      method: 'post',
+      data: user,
+    });
+
+    res.status(201).json({ message: 'user created' });
+  } catch (error) {
+    next(error);
+  }
+});
 
 app.get('*', renderApp);
 

@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { loginRequest } from '../actions';
+import { loginUser } from '../actions';
 
 import '../assets/styles/components/Login.scss';
 
@@ -25,9 +26,7 @@ const Login = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.loginRequest(form);
-    props.history.push('/');
-    console.log(form);
+    props.loginUser(form, '/');
   };
 
   return (
@@ -52,10 +51,8 @@ const Login = (props) => {
             onChange={handleInput}
           />
 
-          <button className='button' type='button'>
-            <Link to='/'>
-              Iniciar sesión
-            </Link>
+          <button className='button' type='submit'>
+            Iniciar sesión
           </button>
 
           <div className='login__container--remember-me'>
@@ -105,7 +102,11 @@ const Login = (props) => {
 };
 
 const mapDispatchToProps = {
-  loginRequest,
+  loginUser,
+};
+
+Login.propTypes = {
+  loginUser: PropTypes.func,
 };
 
 export default connect(null, mapDispatchToProps)(Login);

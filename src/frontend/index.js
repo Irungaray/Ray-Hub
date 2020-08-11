@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, compose } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { Router } from 'react-router';
 import { createBrowserHistory } from 'history';
 
@@ -18,7 +19,7 @@ const preloadedState = window.__PRELOADED_STATE__;
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // Nuevo Store para pasarle al Provider
-const store = createStore(reducer, preloadedState, composeEnhancers());
+const store = createStore(reducer, preloadedState, composeEnhancers(applyMiddleware(thunk)));
 
 // Borrando el preloadedState para que no sea visto por usuarios externos
 delete window.__PRELOADED_STATE__;
@@ -27,7 +28,7 @@ delete window.__PRELOADED_STATE__;
 ReactDOM.hydrate(
   <Provider store={store}>
     <Router history={history}>
-      <App />
+      <App isLogged={preloadedState.user.id} />
     </Router>
   </Provider>,
 

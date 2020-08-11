@@ -15,19 +15,18 @@ const Home = ({ myList, trends, originals, searchResult }) => {
       <Search />
 
       {
-        Object.keys(searchResult).length > 0 &&
-                    (
-                      <Categories title='Resultados de tu busqueda'>
-                        <Carousel>
-                          {searchResult.map((item) => (
-                            <CarouselItem
-                              key={item.id}
-                              {...item}
-                            />
-                          ))}
-                        </Carousel>
-                      </Categories>
-                    )
+        Object.keys(searchResult).length > 0 && (
+          <Categories title='Resultados de tu busqueda'>
+            <Carousel>
+              {searchResult.map((item) => (
+                <CarouselItem
+                  key={item.id}
+                  {...item}
+                />
+              ))}
+            </Carousel>
+          </Categories>
+        )
       }
 
       {myList.length > 0 && (

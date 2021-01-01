@@ -33,6 +33,7 @@ Algunas de las features que ofrece son:
 * Estilos con SASS creados desde 0 (No Bootstrap)
 * Progressive Web App
 * Add to Home Screen
+* Control de versiones con Git CLI
 * Template de versión final creado desde 0 en HTML y CSS con metodología BEM
 * Transformado luego a componentes y containers de React para finalmente conectarse al Backend
 * App a ser desplegada en Heroku, API en Vercel

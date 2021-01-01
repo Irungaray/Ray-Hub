@@ -9,7 +9,7 @@ const serverRoutes = (isLogged) => {
     {
       exact: true,
       path: '/',
-      component: Home : Login,
+      component: isLogged ? Home : Login,
     },
     {
       exact: true,

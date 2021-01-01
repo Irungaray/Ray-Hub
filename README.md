@@ -13,8 +13,11 @@ Para enterarte cuando sea desplegada la versión final, seguí el Repositorio!
 Podés mirar el template de la versión final acá:
 https://irungaray.github.io/RayHub/
 
-Y su API acá:
+Su API acá:
 https://github.com/Irungaray/moviesAPI
+
+Y en este Gist vas a encontrar el flujo de información más al detalle:
+https://gist.github.com/Irungaray/a8169349806db225ad508973c1edefdc#file-gistfile1-txt
 
 ## Algunas de las features que ofrece son:
 

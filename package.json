@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Irungaray/ReactHub.git"
+    "url": "git+https://github.com/Irungaray/Ray-Hub.git"
   },
   "author": "Irungaray",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Irungaray/ReactHub/issues"
+    "url": "https://github.com/Irungaray/Ray-Hub/issues"
   },
-  "homepage": "https://github.com/Irungaray/ReactHub#readme",
+  "homepage": "https://github.com/Irungaray/Ray-Hub#readme",
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
     "@babel/register": "^7.10.5",

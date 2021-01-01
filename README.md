@@ -4,15 +4,19 @@ Full MERN Stack PWA
 
 **Desarrollo en progreso!**
 
-Siendo este mi proyecto más completo y ambicioso, sumado a que aún está en desarrollo, es probable que encuentres algún bug, de ser así te invito a reportarlo!
+*Siendo este mi proyecto más completo y ambicioso, sumado a que aún está en desarrollo, es probable que encuentres algún bug, de ser así te invito a reportarlo!*
 
-Mientras tanto, podés mirar el template de la versión final acá:
+Para enterarte cuando sea desplegada la versión final, seguí el Repositorio!
+
+## Links
+
+Podés mirar el template de la versión final acá:
 https://irungaray.github.io/RayHub/
 
 Y su API acá:
 https://github.com/Irungaray/moviesAPI
 
-Algunas de las features que ofrece son:
+## Algunas de las features que ofrece son:
 
 * App hecha en React
 * Conexión a MongoDB
@@ -25,8 +29,9 @@ Algunas de las features que ofrece son:
 * Navegación entre páginas con React Router
 * Configuración de desarrollo y producción con Webpack
 * Tests de Jest personalizados para la App y la API
+* Coverage con Jest y Mocha
 * Transpilado con Babel
-* ESLint
+* Estandarización de código con ESLint
 * Middlewares de Helmet
 * Variables de entorno con DotEnv
 * Assets minificados con Vendor
